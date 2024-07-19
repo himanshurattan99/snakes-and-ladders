@@ -24,15 +24,23 @@ const playersPositions = {
     'Y': 0,
 };
 
+// For Storing The Previous Position Of Both Players
+const playersPreviousPositions = {
+    'X': 0,
+    'Y': 0,
+}
+
 // Storing The Turn
 let turn = 'X';
 
 // Getting All The HTML Elements
-const xPosition = document.getElementById('player-x');
-const yPosition = document.getElementById('player-y');
+const xPosition = document.getElementById('player-x-position');
+const yPosition = document.getElementById('player-y-position');
 const rollDiceButton = document.getElementById('roll-dice-button');
 const infoDiv = document.getElementById('info');
 const cells = document.getElementsByClassName('cell');
+const playerX = document.getElementsByClassName('player-x');
+const playerY = document.getElementsByClassName('player-y');
 
 // Gameplay Logic Function
 const play = () => {
@@ -40,6 +48,9 @@ const play = () => {
     const steps = Math.floor(Math.random() * 6 + 1);
     // Displaying Dice Value On Info Div
     infoDiv.innerHTML = turn + ' : ' + steps;
+
+    // Storing The Current Position Of Player Before Advancing Forward
+    playersPreviousPositions[turn] = playersPositions[turn];
 
     // If Player Has Already Entered The Board
     if (playersPositions[turn] !== 0) {
@@ -72,16 +83,21 @@ const play = () => {
         }
     }
 
-    // Displaying The Player's Position After Rolling The Dice
+    // Hiding The Player's Previous Position And Then Displaying Current Position On Table And Board After Rolling The Dice
     if (turn === 'X') {
         xPosition.innerHTML = playersPositions[turn];
+        (playerX[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        (playerX[100 - playersPositions[turn]]).style.display = 'inline';
     }
     else {
         yPosition.innerHTML = playersPositions[turn];
+        (playerY[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        (playerY[100 - playersPositions[turn]]).style.display = 'inline';
     }
 
     // Player Has To Repeat The Turn If Dice Value Is 6
     if (steps !== 6) {
+        // Changing The Turn
         turn = (turn === 'X') ? 'Y' : 'X';
     }
 }

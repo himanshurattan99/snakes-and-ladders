@@ -12,10 +12,12 @@
         -> A Player Will Not Move If Players's Current Position Plus Dice Value Exceeds 100
         
 # Bugs : 
+        -> Player's Name Not Appearing In 1st Cell On The Board
+        -> Players Repeating The Turn Even If Dice Value Is Not 6 Before Entering The Board Or When They Enter The 
+           Board At 1st Cell
 
 # Fixed Bugs :
 
 # Features To Be Added :
-    1. Displaying Players Names On Boards's Cell
-    2. Displaying Snaked And Ladders On Board
-    3. Adding More Players Feature
+    1. Displaying Snakes And Ladders On Board
+    2. Adding More Players Feature

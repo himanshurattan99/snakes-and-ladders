@@ -42,7 +42,7 @@ main {
     text-align: center;
 }
 
-.players {
+.player-name {
     background-color: #0076CE;
     color: #E0FFFF;
     border-radius: 0.25rem;
@@ -111,4 +111,25 @@ main {
 
 .cell:nth-child(even):hover {
     background-color: #003C69;
+}
+
+.players {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.player-x {
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+    border: 0.125rem solid #00BFFF;
+    border-radius: 0.2rem;
+    display: none;
+}
+
+.player-y {
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+    border: 0.125rem solid #00BFFF;
+    border-radius: 0.2rem;
+    display: none;
 }
