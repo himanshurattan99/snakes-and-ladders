@@ -12,12 +12,16 @@
         -> A Player Will Not Move If Players's Current Position Plus Dice Value Exceeds 100
         
 # Bugs : 
+
+# Fixed Bugs :
         -> Player's Name Not Appearing In 1st Cell On The Board
         -> Players Repeating The Turn Even If Dice Value Is Not 6 Before Entering The Board Or When They Enter The 
            Board At 1st Cell
 
-# Fixed Bugs :
-
 # Features To Be Added :
     1. Displaying Snakes And Ladders On Board
     2. Adding More Players Feature
+    3. Adding A Reset Button
+    4. Adding Real-Time Multiplayer Gameplay Across Multiple Devices
+    5. Adding Sound Effects
+    6. Adding Smooth Animation Of Dice Roll And Players Moving On Board

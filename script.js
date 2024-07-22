@@ -38,6 +38,7 @@ const xPosition = document.getElementById('player-x-position');
 const yPosition = document.getElementById('player-y-position');
 const rollDiceButton = document.getElementById('roll-dice-button');
 const infoDiv = document.getElementById('info');
+const resetButton = document.getElementById('reset-button');
 const cells = document.getElementsByClassName('cell');
 const playerX = document.getElementsByClassName('player-x');
 const playerY = document.getElementsByClassName('player-y');
@@ -64,6 +65,9 @@ const play = () => {
 
             // Displaying The Win Message On Info Div
             infoDiv.innerHTML = turn + ' Wins!!!';
+
+            // Removing The Event Listener From Roll Dice Button
+            rollDiceButton.removeEventListener('click', play);
         }
 
         // If Player Enters The Snake's Head Cell
@@ -86,13 +90,21 @@ const play = () => {
     // Hiding The Player's Previous Position And Then Displaying Current Position On Table And Board After Rolling The Dice
     if (turn === 'X') {
         xPosition.innerHTML = playersPositions[turn];
-        (playerX[100 - playersPreviousPositions[turn]]).style.display = 'none';
-        (playerX[100 - playersPositions[turn]]).style.display = 'inline';
+        if (playersPreviousPositions[turn] !== 0) {
+            (playerX[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        }
+        if (playersPositions[turn] !== 0) {
+            (playerX[100 - playersPositions[turn]]).style.display = 'inline';
+        }
     }
     else {
         yPosition.innerHTML = playersPositions[turn];
-        (playerY[100 - playersPreviousPositions[turn]]).style.display = 'none';
-        (playerY[100 - playersPositions[turn]]).style.display = 'inline';
+        if (playersPreviousPositions[turn] !== 0) {
+            (playerY[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        }
+        if (playersPositions[turn] !== 0) {
+            (playerY[100 - playersPositions[turn]]).style.display = 'inline';
+        }
     }
 
     // Player Has To Repeat The Turn If Dice Value Is 6
@@ -104,3 +116,25 @@ const play = () => {
 
 // Adding Event Listener To Roll Dice Button
 rollDiceButton.addEventListener('click', play);
+
+// Reset Game Function
+const reset = () => {
+    if (playersPositions['X'] !== 0) {
+        (playerX[100 - playersPositions['X']]).style.display = 'none';
+    }
+    if (playersPositions['Y'] !== 0) {
+        (playerY[100 - playersPositions['Y']]).style.display = 'none';
+    }
+    playersPositions['X'] = 0;
+    playersPositions['Y'] = 0;
+    playersPreviousPositions['X'] = 0;
+    playersPreviousPositions['Y'] = 0;
+    turn = 'X';
+    xPosition.innerHTML = 0;
+    yPosition.innerHTML = 0;
+    infoDiv.innerHTML = 'Play';
+    rollDiceButton.addEventListener('click', play);
+}
+
+// Adding Event Listener To Reset Button
+resetButton.addEventListener('click', reset);
