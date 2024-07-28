@@ -43,6 +43,29 @@ const cells = document.getElementsByClassName('cell');
 const playerX = document.getElementsByClassName('player-x');
 const playerY = document.getElementsByClassName('player-y');
 
+// Function To Move Players On Board
+const move = () => {
+    // Hiding The Player's Previous Position And Then Displaying Current Position On Table And Board After Rolling The Dice
+    if (turn === 'X') {
+        xPosition.innerHTML = playersPositions[turn];
+        if (playersPreviousPositions[turn] !== 0) {
+            (playerX[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        }
+        if (playersPositions[turn] !== 0) {
+            (playerX[100 - playersPositions[turn]]).style.display = 'inline';
+        }
+    }
+    else {
+        yPosition.innerHTML = playersPositions[turn];
+        if (playersPreviousPositions[turn] !== 0) {
+            (playerY[100 - playersPreviousPositions[turn]]).style.display = 'none';
+        }
+        if (playersPositions[turn] !== 0) {
+            (playerY[100 - playersPositions[turn]]).style.display = 'inline';
+        }
+    }
+}
+
 // Gameplay Logic Function
 const play = () => {
     // Generating Random Dice Value
@@ -78,32 +101,16 @@ const play = () => {
         else if ((playersPositions[turn]) in laddersPositions) {
             playersPositions[turn] = laddersPositions[playersPositions[turn]];
         }
+
+        // Moving The Player On Board
+        move();
     }
     // If Player Has Yet To Enter The Board
     else {
         // Player Enters the Board Only If The Dice Value Is 6 or 1
         if (steps === 6 || steps === 1) {
             playersPositions[turn] = 1;
-        }
-    }
-
-    // Hiding The Player's Previous Position And Then Displaying Current Position On Table And Board After Rolling The Dice
-    if (turn === 'X') {
-        xPosition.innerHTML = playersPositions[turn];
-        if (playersPreviousPositions[turn] !== 0) {
-            (playerX[100 - playersPreviousPositions[turn]]).style.display = 'none';
-        }
-        if (playersPositions[turn] !== 0) {
-            (playerX[100 - playersPositions[turn]]).style.display = 'inline';
-        }
-    }
-    else {
-        yPosition.innerHTML = playersPositions[turn];
-        if (playersPreviousPositions[turn] !== 0) {
-            (playerY[100 - playersPreviousPositions[turn]]).style.display = 'none';
-        }
-        if (playersPositions[turn] !== 0) {
-            (playerY[100 - playersPositions[turn]]).style.display = 'inline';
+            move();
         }
     }
 

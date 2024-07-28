@@ -106,6 +106,7 @@ main {
     padding: 0.25rem;
     border: 0.125rem solid #00BFFF;
     cursor: pointer;
+    position: relative;
 }
 
 .cell:nth-child(odd) {
@@ -121,6 +122,22 @@ main {
 .cell:nth-child(even) {
     background-color: #0076CE;
     color: #E0FFFF;
+}
+
+.snakes,
+.ladders {
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0.25rem;
+    bottom: 0.1rem;
+}
+
+.snakes {
+    color: #FF3232;
+}
+
+.ladders {
+    color: #B4FF44;
 }
 
 .cell:nth-child(even):hover {
