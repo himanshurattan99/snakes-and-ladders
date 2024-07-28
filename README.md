@@ -19,9 +19,7 @@
            Board At 1st Cell
 
 # Features To Be Added :
-    1. Displaying Snakes And Ladders On Board
-    2. Adding More Players Feature
-    3. Adding A Reset Button
-    4. Adding Real-Time Multiplayer Gameplay Across Multiple Devices
-    5. Adding Sound Effects
-    6. Adding Smooth Animation Of Dice Roll And Players Moving On Board
+    1. Adding More Players Feature
+    2. Adding Real-Time Multiplayer Gameplay Across Multiple Devices
+    3. Adding Sound Effects
+    4. Adding Smooth Animation Of Dice Roll And Players Moving On Board
