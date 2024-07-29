@@ -66,6 +66,30 @@ const move = () => {
     }
 }
 
+// Function To Handle The Operations When Player Lands On A Snake Or Ladder Cell
+const handleSnakeOrLadder = () => {
+    // Storing Snake Or Ladder Cell Position
+    const cellPosition = playersPositions[turn];
+
+    const originalColor = (cells[100 - cellPosition]).style.backgroundColor;
+    const temporaryColor = (cellPosition in snakesPositions) ? '#FF3232' : '#B4FF44';
+
+    // Changing The Snake's Or Ladder's Cell Color Temporarily For Interactive Gameplay
+    (cells[100 - cellPosition]).style.backgroundColor = temporaryColor;
+
+    // Reverting The Color After 3 Seconds
+    setTimeout(() => {
+        (cells[100 - cellPosition]).style.backgroundColor = originalColor;
+    }, 3000);
+
+    if ((playersPositions[turn]) in snakesPositions) {
+        playersPositions[turn] = snakesPositions[playersPositions[turn]];
+    }
+    else if ((playersPositions[turn]) in laddersPositions) {
+        playersPositions[turn] = laddersPositions[playersPositions[turn]];
+    }
+}
+
 // Gameplay Logic Function
 const play = () => {
     // Generating Random Dice Value
@@ -93,13 +117,9 @@ const play = () => {
             rollDiceButton.removeEventListener('click', play);
         }
 
-        // If Player Enters The Snake's Head Cell
-        if ((playersPositions[turn]) in snakesPositions) {
-            playersPositions[turn] = snakesPositions[playersPositions[turn]];
-        }
-        // If Player Enters The Ladder's Foot Cell
-        else if ((playersPositions[turn]) in laddersPositions) {
-            playersPositions[turn] = laddersPositions[playersPositions[turn]];
+        // If Player Enters The Snake's Head Cell Or The Ladder's Foot Cell
+        if ((playersPositions[turn]) in snakesPositions || (playersPositions[turn]) in laddersPositions) {
+            handleSnakeOrLadder();
         }
 
         // Moving The Player On Board
