@@ -43,6 +43,17 @@ const cells = document.getElementsByClassName('cell');
 const playerX = document.getElementsByClassName('player-x');
 const playerY = document.getElementsByClassName('player-y');
 
+// Game Sounds
+const gameStartSound = new Audio('./assets/gameStartSound.mp3');
+const stepSound = new Audio('./assets/stepSound.mp3');
+const snakeSound = new Audio('./assets/snakeSound.mp3');
+const ladderSound = new Audio('./assets/ladderSound.mp3');
+const victorySound = new Audio('./assets/victorySound.mp3');
+const resetSound = new Audio('./assets/resetSound.mp3');
+
+// Playing Game Start Sound
+gameStartSound.play();
+
 // Function To Move Players On Board
 const move = () => {
     // Hiding The Player's Previous Position And Then Displaying Current Position On Table And Board After Rolling The Dice
@@ -64,6 +75,9 @@ const move = () => {
             (playerY[100 - playersPositions[turn]]).style.display = 'inline';
         }
     }
+
+    // Playing Step Sound
+    stepSound.play();
 }
 
 // Function To Handle The Operations When Player Lands On A Snake Or Ladder Cell
@@ -84,9 +98,13 @@ const handleSnakeOrLadder = () => {
 
     if ((playersPositions[turn]) in snakesPositions) {
         playersPositions[turn] = snakesPositions[playersPositions[turn]];
+        // Playing Snake Sound
+        snakeSound.play();
     }
-    else if ((playersPositions[turn]) in laddersPositions) {
+    else {
         playersPositions[turn] = laddersPositions[playersPositions[turn]];
+        // Playing Ladder Sound
+        ladderSound.play();
     }
 }
 
@@ -112,6 +130,9 @@ const play = () => {
 
             // Displaying The Win Message On Info Div
             infoDiv.innerHTML = turn + ' Wins!!!';
+
+            // Playing Victory Sound
+            victorySound.play();
 
             // Removing The Event Listener From Roll Dice Button
             rollDiceButton.removeEventListener('click', play);
@@ -161,6 +182,9 @@ const reset = () => {
     yPosition.innerHTML = 0;
     infoDiv.innerHTML = 'Play';
     rollDiceButton.addEventListener('click', play);
+
+    // Playing Reset Sound
+    resetSound.play();
 }
 
 // Adding Event Listener To Reset Button
