@@ -12,14 +12,14 @@
         -> A Player Will Not Move If Players's Current Position Plus Dice Value Exceeds 100
         
 # Bugs : 
+    1. Game Start Sound Not Playing In The Beginning
 
 # Fixed Bugs :
-        -> Player's Name Not Appearing In 1st Cell On The Board
-        -> Players Repeating The Turn Even If Dice Value Is Not 6 Before Entering The Board Or When They Enter The 
-           Board At 1st Cell
+    1. Player's Name Not Appearing In 1st Cell On The Board
+    2. Players Repeating The Turn Even If Dice Value Is Not 6 Before Entering The Board Or When They Enter The 
+       Board At 1st Cell
 
 # Features To Be Added :
     1. Adding More Players Feature
     2. Adding Real-Time Multiplayer Gameplay Across Multiple Devices
-    3. Adding Sound Effects
-    4. Adding Smooth Animation Of Dice Roll And Players Moving On Board
+    3. Adding Smooth Animation Of Dice Roll And Players Moving On Board
