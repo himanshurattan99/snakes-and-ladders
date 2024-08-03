@@ -39,6 +39,7 @@ const yPosition = document.getElementById('player-y-position');
 const rollDiceButton = document.getElementById('roll-dice-button');
 const infoDiv = document.getElementById('info');
 const resetButton = document.getElementById('reset-button');
+const startButton = document.getElementById('start-button');
 const cells = document.getElementsByClassName('cell');
 const playerX = document.getElementsByClassName('player-x');
 const playerY = document.getElementsByClassName('player-y');
@@ -50,9 +51,6 @@ const snakeSound = new Audio('./assets/snakeSound.mp3');
 const ladderSound = new Audio('./assets/ladderSound.mp3');
 const victorySound = new Audio('./assets/victorySound.mp3');
 const resetSound = new Audio('./assets/resetSound.mp3');
-
-// Playing Game Start Sound
-gameStartSound.play();
 
 // Function To Move Players On Board
 const move = () => {
@@ -162,9 +160,6 @@ const play = () => {
     }
 }
 
-// Adding Event Listener To Roll Dice Button
-rollDiceButton.addEventListener('click', play);
-
 // Reset Game Function
 const reset = () => {
     if (playersPositions['X'] !== 0) {
@@ -187,5 +182,20 @@ const reset = () => {
     resetSound.play();
 }
 
-// Adding Event Listener To Reset Button
-resetButton.addEventListener('click', reset);
+// Start Game Function
+const start = () => {
+    // Adding Event Listener To Roll Dice Button
+    rollDiceButton.addEventListener('click', play);
+
+    // Adding Event Listener To Reset Button
+    resetButton.addEventListener('click', reset);
+
+    // Hiding Start Game Button
+    startButton.style.display = 'none';
+
+    // Playing Game Start Sound
+    gameStartSound.play();
+}
+
+// Adding Event Listener To Start Game Button
+startButton.addEventListener('click', start);

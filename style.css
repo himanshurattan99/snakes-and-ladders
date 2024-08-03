@@ -34,6 +34,20 @@ main {
     gap: 1.8rem;
 }
 
+#start-button {
+    padding: 0.25rem 0.5rem;
+    background-color: #0076CE;
+    color: #E0FFFF;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background-color: #323232;
+    color: #00BFFF;
+}
+
 #players-positions {
     display: grid;
     grid-template-rows: repeat(2, 1.2rem);
