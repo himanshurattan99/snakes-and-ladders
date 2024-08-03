@@ -11,8 +11,7 @@
         -> A Player Wins If They Enter The 100th Cell
         -> A Player Will Not Move If Players's Current Position Plus Dice Value Exceeds 100
         
-# Bugs : 
-    1. Game Start Sound Not Playing In The Beginning
+# Bugs :
 
 # Fixed Bugs :
     1. Player's Name Not Appearing In 1st Cell On The Board
