@@ -34,7 +34,9 @@ main {
     gap: 1.8rem;
 }
 
-#start-button {
+#start-button,
+#roll-dice-button,
+#reset-button {
     padding: 0.25rem 0.5rem;
     background-color: #0076CE;
     color: #E0FFFF;
@@ -43,7 +45,9 @@ main {
     cursor: pointer;
 }
 
-#start-button:hover {
+#start-button:hover,
+#roll-dice-button:hover,
+#reset-button:hover {
     background-color: #323232;
     color: #00BFFF;
 }
@@ -68,20 +72,6 @@ main {
     border-radius: 0.25rem;
 }
 
-#roll-dice-button {
-    padding: 0.25rem 0.5rem;
-    background-color: #0076CE;
-    color: #E0FFFF;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
-#roll-dice-button:hover {
-    background-color: #323232;
-    color: #00BFFF;
-}
-
 #info {
     height: 1.25rem;
     padding: 0.25rem 0.5rem;
@@ -89,20 +79,6 @@ main {
     color: #00BFFF;
     text-align: center;
     border-radius: 0.25rem;
-}
-
-#reset-button {
-    padding: 0.25rem 0.5rem;
-    background-color: #0076CE;
-    color: #E0FFFF;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
-#reset-button:hover {
-    background-color: #323232;
-    color: #00BFFF;
 }
 
 .row {
@@ -138,6 +114,10 @@ main {
     color: #E0FFFF;
 }
 
+.cell:nth-child(even):hover {
+    background-color: #003C69;
+}
+
 .snakes,
 .ladders {
     font-size: 0.8rem;
@@ -152,10 +132,6 @@ main {
 
 .ladders {
     color: #B4FF44;
-}
-
-.cell:nth-child(even):hover {
-    background-color: #003C69;
 }
 
 .players {

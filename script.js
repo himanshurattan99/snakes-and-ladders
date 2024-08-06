@@ -106,6 +106,20 @@ const handleSnakeOrLadder = () => {
     }
 }
 
+// Handle Win Function
+const handleWin = () => {
+    playersPositions[turn] = 100;
+
+    // Displaying The Win Message On Info Div
+    infoDiv.innerHTML = turn + ' Wins!!!';
+
+    // Playing Victory Sound
+    victorySound.play();
+
+    // Removing The Event Listener From Roll Dice Button
+    rollDiceButton.removeEventListener('click', play);
+}
+
 // Gameplay Logic Function
 const play = () => {
     // Generating Random Dice Value
@@ -124,16 +138,7 @@ const play = () => {
         }
         // If Player Wins
         else if (playersPositions[turn] + steps === 100) {
-            playersPositions[turn] = 100;
-
-            // Displaying The Win Message On Info Div
-            infoDiv.innerHTML = turn + ' Wins!!!';
-
-            // Playing Victory Sound
-            victorySound.play();
-
-            // Removing The Event Listener From Roll Dice Button
-            rollDiceButton.removeEventListener('click', play);
+            handleWin();
         }
 
         // If Player Enters The Snake's Head Cell Or The Ladder's Foot Cell
