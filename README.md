@@ -17,6 +17,7 @@
     1. Player's Name Not Appearing In 1st Cell On The Board
     2. Players Repeating The Turn Even If Dice Value Is Not 6 Before Entering The Board Or When They Enter The 
        Board At 1st Cell
+    3. Game Start Sound Not Playing In The Beginning
 
 # Features To Be Added :
     1. Adding More Players Feature
